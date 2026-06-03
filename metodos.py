@@ -87,3 +87,45 @@ def ejecutar_newton(a,r,funcion_texto):
         return False, str(e), derivada_sympy  
     except Exception:
         return False, "Error matemático.", None
+
+def ejecutar_secante(x0,x1,r,funcion_texto):
+    try:
+        texto_limpio = limpiar_funcion_usuario(funcion_texto)
+        expresion_sympy = sympify(texto_limpio)
+        f = lambdify(x_simbolo, expresion_sympy, modules ='math')
+        lista = [0]*8
+        lista[0]  = 1
+        lista[1] = x0
+        lista[2] = x1
+        f0 = evaluar_funcion(lista[1],f)
+        f1 = evaluar_funcion(lista[2],f)
+        if (f1 - f0)==0:
+            raise ValueError("No se pudo hallar el punto aproximado")
+        lista[3] = f0
+        lista[4] = f1
+        lista[5] = lista[2] - (lista[4]*(lista[2] - lista[1]))/(lista[4] - lista[3])
+        lista[6] = evaluar_funcion(lista[5],f)
+        lista[7] = abs(lista[6])
+        tabla_iteraciones=[]
+        while(lista[7]>=r):
+            tabla_iteraciones.append(list(lista))
+            
+            lista[0]  += 1
+            lista[1] = lista[2]
+            lista[2] = lista[5]
+            lista[3] = lista[4]
+            lista[4] = lista[6]
+            if (lista[4] - lista[3])==0:
+                raise ValueError("No se pudo hallar el punto aproximado")
+            
+            lista[5] = lista[2] - (lista[4]*(lista[2] - lista[1]))/(lista[4] - lista[3])
+            lista[6] = evaluar_funcion(lista[5],f)
+            lista[7] = abs(lista[6])
+
+        tabla_iteraciones.append(list(lista))
+        return True, (lista[0], tabla_iteraciones)
+
+    except ValueError as e:
+        return False, str(e)
+    except Exception:
+        return False, "Error matemático al procesar la ecuacion con el metodo de la secante."

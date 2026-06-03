@@ -28,5 +28,18 @@ with st.container():
     )
     st.caption("👈 _Haz clic en 'metodo de newton raphson' en el menú lateral para abrir la calculadora._")
 
+st.write("") 
+
+# --- FILA 3: MÉTODO DE LA SECANTE ---
+with st.container():
+    st.success("### 📐 Método de la Secante")
+    st.write(
+        "Es un método abierto que parte de dos valores iniciales y utiliza una línea recta "
+        "que corta a la curva (recta secante) para aproximar el punto donde la función cruza el eje x. "
+        "Tiene una velocidad de convergencia superlineal, siendo la mejor opción cuando "
+        "no se conoce o es muy difícil evaluar la función de la derivada."
+    )
+    st.caption("👈 _Haz clic en 'metodo de la secante' en el menú lateral para abrir la calculadora._")
+
 st.markdown("---")
 st.caption("Desarrollado con Python y Streamlit.")
