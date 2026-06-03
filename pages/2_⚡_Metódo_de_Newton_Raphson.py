@@ -11,15 +11,12 @@ st.write("Encuentra raíces de funciones rápidamente usando derivadas analític
 col1_n, col2_n, col3_n = st.columns(3)
 with col1_n:
     x0 = st.number_input("Valor inicial ($x_0$):", value=1.0, step=0.1, key="x0_new")
-with col2_n:
-    funcion_newton = st.text_input("Ingrese la función:", value="x**2 - 4", key="fun_new")     
-with col1_n:
-    r_newton = st.number_input("Error permitido (Tolerancia):", value=0.001, format="%.6f", key="r_new")
-    boton_newton = st.button("CALCULAR NEWTON", type="primary")
-with col2_n:
-    # Espacio libre para mantener alineación estética frente al botón
     st.write("") 
-    
+with col2_n:
+    r_newton = st.number_input("Error permitido (Tolerancia):", value=0.001, format="%.6f", key="r_new")
+    funcion_newton = st.text_input("Ingrese la función:", value="x**2 - 4", key="fun_new")         
+    boton_newton = st.button("CALCULAR NEWTON", type="primary")
+
 with col3_n:
     st.markdown("### 📝 Fórmula de Newton")
     st.write("La aproximación siguiente se calcula mediante:")

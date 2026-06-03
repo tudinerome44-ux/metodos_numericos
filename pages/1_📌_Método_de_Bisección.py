@@ -12,21 +12,18 @@ st.write("Resuelve tus funciones usando el método de bisección con tablas de i
 col1, col2, col3 = st.columns(3)
 with col1:
     a = st.number_input("Extremo izquierdo (a):", value=0.0, step=0.1, key="a_bis")
-with col2:
     b = st.number_input("Extremo derecho (b):", value=1.0, step=0.1, key="b_bis")
-        
-with col1:
-    r = st.number_input("Error permitido (Tolerancia):", value=0.001, format="%.6f", key="r_bis")
-    boton_biseccion = st.button("CALCULAR BISECCIÓN", type="primary")
 with col2:
+    r = st.number_input("Error permitido (Tolerancia):", value=0.001, format="%.6f", key="r_bis")
     funcion_biseccion = st.text_input("Ingrese la función:", value="x^2 - 4", key="fun_bis")
-        
+    boton_biseccion = st.button("CALCULAR BISECCIÓN", type="primary")
 with col3:
     st.markdown("### 📝 Fórmula del Método")
-    st.write("El punto medio $c$ se calcula como:")
-    st.latex(r"c = \frac{a + b}{2}")
     st.write("Condición de Bolzano:")
     st.latex(r"f(a) \cdot f(b) < 0")
+    st.write("El punto medio $c$ se calcula como:")
+    st.latex(r"c = \frac{a + b}{2}")
+    
 
 if boton_biseccion:
     # Bisección recibe exactamente 2 parámetros (exito, resultado)

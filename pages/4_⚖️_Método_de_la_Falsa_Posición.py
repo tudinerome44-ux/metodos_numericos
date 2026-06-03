@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 st.header("Método de la Falsa Posición")
-st.write("Resuelve tus funciones usando el método de la falas posción con tablas de iteraciones paso a paso.")
+st.write("Resuelve tus funciones usando el método de la falsa posición con tablas de iteraciones paso a paso.")
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -20,8 +20,11 @@ with col2:
       
 with col3:
     st.markdown("### 📐 Fórmula del Método")
+    st.write("Condición de Bolzano:")
+    st.latex(r"f(a) \cdot f(b) < 0")
     st.write("La aproximación siguiente se calcula mediante:")
     st.latex(r"x_r = b - \frac{f(b) \cdot (b - a)}{f(b) - f(a)}")
+    
 
 if boton_falsa_posicion:
     exito, resultado = ejecutar_falsa_posicion(a, b, r, funcion_falsa_posicion)
