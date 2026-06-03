@@ -8,7 +8,7 @@ st.markdown("---")
 
 # --- FILA 1: MÉTODO DE LA BISECCIÓN ---
 with st.container():
-    st.markdown("<h3 style='color: #FF4B4B; margin-top: 0;'>📌 Método de la Bisección</h3>", unsafe_allow_html=True)
+    st.info("###📌 Método de la Bisección")
     st.write(
         "Es un algoritmo de búsqueda de raíces que divide el intervalo a la mitad de forma repetitiva "
         "y selecciona un subintervalo en el que radica la raíz para continuar la búsqueda. "
@@ -20,7 +20,7 @@ st.write("") # Espacio en blanco para separar las filas
 
 # --- FILA 2: MÉTODO DE NEWTON-RAPHSON ---
 with st.container():
-    st.markdown("<h3 style='color: #FFD700; margin-top: 0;'>⚡ Método de Newton-Raphson</h3>", unsafe_allow_html=True)
+    st.info("###⚡ Método de Newton-Raphson")
     st.write(
         "Es un método abierto que parte de un único valor inicial y utiliza la derivada de la función "
         "para encontrar una aproximación a la raíz en muy pocas iteraciones. "
@@ -32,7 +32,7 @@ st.write("")
 
 # --- FILA 3: MÉTODO DE LA SECANTE ---
 with st.container():
-    st.markdown("<h3 style='color: #00E676; margin-top: 0;'>📐 Método de la Secante</h3>", unsafe_allow_html=True)
+    st.info("###📐 Método de la Secante")
     st.write(
         "Es un método abierto que parte de dos valores iniciales y utiliza una línea recta "
         "que corta a la curva (recta secante) para aproximar el punto donde la función cruza el eje x. "
@@ -45,7 +45,7 @@ st.write("")
 
 # --- FILA 4: MÉTODO DE LA FALSA POSICION ---
 with st.container():
-    st.markdown("<h3 style='color: #E040FB; margin-top: 0;'>⚖️ Método de la Falsa Posición</h3>", unsafe_allow_html=True)
+    st.info("###⚖️ Método de la Falsa Posición")
     st.write(
         "Es un método cerrado que encierra la raíz en un intervalo mediante el teorema de Bolzano. "
         "Calcula la aproximación trazando una línea recta entre los extremos para acelerar la búsqueda. "
