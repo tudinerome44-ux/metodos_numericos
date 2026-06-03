@@ -41,5 +41,19 @@ with st.container():
     )
     st.caption("👈 _Haz clic en 'metodo de la secante' en el menú lateral para abrir la calculadora._")
 
+st.write("") 
+
+# --- FILA 4: MÉTODO DE LA FALSA POSICION ---
+with st.container():
+    st.success("### ⚖️ Método de la Falsa Posición")
+    st.write(
+        "Es un método cerrado que encierra la raíz en un intervalo mediante el teorema de Bolzano. "
+        "Calcula la aproximación trazando una línea recta entre los extremos para acelerar la búsqueda. "
+        "Combina la seguridad de la bisección con el cálculo geométrico de la secante. "
+        "Es ideal cuando se busca convergencia garantizada con mayor eficiencia que el corte a la mitad."
+    )
+
+    st.caption("👈 _Haz clic en 'metodo de la falsa poscion ' en el menú lateral para abrir la calculadora._")
+
 st.markdown("---")
 st.caption("Desarrollado con Python y Streamlit.")

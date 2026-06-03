@@ -46,8 +46,6 @@ def ejecutar_biseccion(a,b,r,funcion_texto):
     except Exception:
         return False, "Error matemático inesperado al procesar la ecuación en Bisección."
 
-
-
 def ejecutar_newton(a,r,funcion_texto):
     try:
         texto_limpio = limpiar_funcion_usuario(funcion_texto)
@@ -129,3 +127,52 @@ def ejecutar_secante(x0,x1,r,funcion_texto):
         return False, str(e)
     except Exception:
         return False, "Error matemático al procesar la ecuacion con el metodo de la secante."
+    
+def ejecutar_falsa_posicion(a,b,r,funcion_texto):
+    try:
+        texto_limpio = limpiar_funcion_usuario(funcion_texto)
+        expresion_sympy = sympify(texto_limpio)
+        f = lambdify(x_simbolo, expresion_sympy, modules ='math')
+        
+        lista = [0]*8
+        lista[0]  = 1
+        lista[1] = a
+        lista[2] = b
+        fa = evaluar_funcion(lista[1],f)
+        fb = evaluar_funcion(lista[2],f)
+        if (fa*fb>=0):
+            raise ValueError("No cumple con el teorema de Bolzano.")
+        if (fb - fa)==0:
+            raise ValueError(f"Division por cero. f({a}) y f({b}) son iguales. \nNo se puede hallar el valor aproximado de la raíz.")
+        
+        lista[3] = fa
+        lista[4] = fb
+        lista[5] = lista[2] - (lista[4]*(lista[2] - lista[1]))/(lista[4] - lista[3])
+        lista[6] = evaluar_funcion(lista[5],f)
+        lista[7] = abs(lista[6])
+        tabla_iteraciones=[]
+        while(lista[7]>=r):
+            tabla_iteraciones.append(list(lista))
+            
+            lista[0]  += 1
+            if(lista[3]*lista[6]<0):
+                lista[2] = lista[5]
+                lista[4] = lista[6]
+            else:
+                lista[1] = lista[5]
+                lista[3] = lista[6]
+            if (lista[4] - lista[3])==0:
+                raise ValueError(f"Division por cero. f({lista[2]}) y f({lista[1]}) son iguales. \nNo se puede hallar el valor aproximado de la raíz.")
+        
+            lista[5] = lista[2] - (lista[4]*(lista[2] - lista[1]))/(lista[4] - lista[3])
+            lista[6] = evaluar_funcion(lista[5],f)
+            lista[7] = abs(lista[6])
+
+        tabla_iteraciones.append(list(lista))
+        return True, (lista[0], tabla_iteraciones)
+
+    except ValueError as e:
+        return False, str(e)
+    except Exception:
+        return False, "Error matemático al procesar la ecuacion con el metodo de la falsa posición."
+    
