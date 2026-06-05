@@ -6,6 +6,16 @@ st.title("🧮 CALCULADORA DE MÉTODOS NUMÉRICOS")
 st.write("Selecciona el método que deseas utilizar en el menú de la izquierda.")
 st.markdown("---")
 
+#Desaparecer icono molesto de streamli
+st.markdown("""
+    <style>
+    /* Desaparece el ícono de enlace automático en toda la página */
+    .element-container h1 a, .element-container h2 a, .element-container h3 a {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # --- FILA 1: MÉTODO DE LA BISECCIÓN ---
 with st.container():
     st.info("### 📌 Método de la Bisección")
@@ -14,7 +24,8 @@ with st.container():
         "y selecciona un subintervalo en el que radica la raíz para continuar la búsqueda. "
         "Es un método cerrado muy seguro y confiable basado en el Teorema de Bolzano."
     )
-    st.caption("👈 _Haz clic en 'metodo de biseccion' en el menú lateral para abrir la calculadora._")
+    st.page_link("pages/1_📌_Método_de_Bisección.py", label="📟 Abrir Calculadora", use_container_width=True)
+    st.caption("👆Haz clic en Abrir calculadora o 👈 deplázate por el menú lateral")
 
 st.write("") # Espacio en blanco para separar las filas
 
@@ -26,7 +37,8 @@ with st.container():
         "para encontrar una aproximación a la raíz en muy pocas iteraciones. "
         "Tiene una velocidad de convergencia cuadrática, lo que lo hace ideal para cálculos rápidos."
     )
-    st.caption("👈 _Haz clic en 'metodo de newton raphson' en el menú lateral para abrir la calculadora._")
+    st.page_link("pages/2_⚡_Metódo_de_Newton_Raphson.py", label="📟 Abrir Calculadora", use_container_width=True)
+    st.caption("👆Haz clic en Abrir calculadora o 👈 deplázate por el menú lateral")
 
 st.write("") 
 
@@ -39,7 +51,8 @@ with st.container():
         "Tiene una velocidad de convergencia superlineal, siendo la mejor opción cuando "
         "no se conoce o es muy difícil evaluar la función de la derivada."
     )
-    st.caption("👈 _Haz clic en 'metodo de la secante' en el menú lateral para abrir la calculadora._")
+    st.page_link("pages/3_📐_Metódo_de_la_Secante.py", label="📟 Abrir Calculadora", use_container_width=True)
+    st.caption("👆Haz clic en Abrir calculadora o 👈 deplázate por el menú lateral")
 
 st.write("") 
 
@@ -52,8 +65,20 @@ with st.container():
         "Combina la seguridad de la bisección con el cálculo geométrico de la secante. "
         "Es ideal cuando se busca convergencia garantizada con mayor eficiencia que el corte a la mitad."
     )
-
-    st.caption("👈 _Haz clic en 'metodo de la falsa poscion ' en el menú lateral para abrir la calculadora._")
+    st.page_link("pages/4_⚖️_Método_de_la_Falsa_Posición.py", label="📟 Abrir Calculadora", use_container_width=True)
+    st.caption("👆Haz clic en Abrir calculadora o 👈 deplázate por el menú lateral")
 
 st.markdown("---")
 st.caption("Desarrollado con Python y Streamlit.")
+
+with st.sidebar:
+    st.write("---")
+    st.markdown("### 💬 Deja tu Sugerencia")
+    st.write("¿Encontraste un error o tienes una idea? Ayúdame a mejorar la app.")
+    
+    # Este botón hace la redirección automática hacia tu Google Forms
+    st.page_link(
+        "https://forms.gle/mXFjsPMeqaFq1gGq6", 
+        label="📝 Abrir Formulario", 
+        use_container_width=True
+    )
