@@ -1,5 +1,6 @@
 import streamlit as st
 from metodos import ejecutar_secante
+from herramientas import agregar_sugerencias_sidebar as sugerencia
 st.set_page_config(
     page_title="Método de la Secante", 
     page_icon="📐", 
@@ -13,8 +14,8 @@ with col1_n:
     x0 = st.number_input("Primer punto($x_0$):", value=1.0, step=0.1, key="x0_sec")
     x1 = st.number_input("Segundo punto($x_1$):", value=1.0, step=0.1, key="x1_sec")
 with col2_n:
-    funcion_secante = st.text_input("Ingrese la función:", value="x**2 - 4", key="fun_sec")     
     r_secante = st.number_input("Error permitido (Tolerancia):", value=0.001, format="%.6f", key="r_sec")
+    funcion_secante = st.text_input("Ingrese la función:", value="x**2 - 4", key="fun_sec")     
     boton_secante = st.button("CALCULAR SECANTE", type="primary")
 with col3_n:
     st.markdown("### 📐 Fórmula de la Secante")
@@ -38,7 +39,7 @@ if boton_secante:
                 3: st.column_config.NumberColumn("xₙ", format="%.7f", alignment="center"),
                 4: st.column_config.NumberColumn("F(xₙ₋₁)", format="%.7f", alignment="center"),
                 5: st.column_config.NumberColumn("F(xₙ)", format="%.7f", alignment="center"),
-                6: st.column_config.NumberColumn("xₙ₊₁", format="%d", alignment="center"),
+                6: st.column_config.NumberColumn("xₙ₊₁", format="%.7f", alignment="center"),
                 7: st.column_config.NumberColumn("F(xₙ₊₁)", format="%.7f", alignment="center"),
                 8: st.column_config.NumberColumn("Error residual", format="%.7f", alignment="center"),
             },
@@ -46,3 +47,7 @@ if boton_secante:
         )
     else:
         st.error(f"hubo un problemas: {resultado}")
+
+    
+with st.sidebar:
+    sugerencia()

@@ -1,5 +1,6 @@
 import streamlit as st
 from metodos import ejecutar_newton
+from herramientas import agregar_sugerencias_sidebar as sugerencia
 st.set_page_config(
     page_title="Método de Newton-Raphson", 
     page_icon="⚡", 
@@ -36,9 +37,9 @@ if boton_newton:
             tabla,
             column_config={
                 1: st.column_config.NumberColumn("i", format="%d", alignment="center"),
-                2: st.column_config.NumberColumn("xn", format="%.7f", alignment="center"),
-                3: st.column_config.NumberColumn("F(xn)", format="%.7f", alignment="center"),
-                4: st.column_config.NumberColumn("F'(xn)", format="%.7f", alignment="center"),
+                2: st.column_config.NumberColumn("xₙ", format="%.7f", alignment="center"),
+                3: st.column_config.NumberColumn("F(xₙ)", format="%.7f", alignment="center"),
+                4: st.column_config.NumberColumn("F'(xₙ)", format="%.7f", alignment="center"),
                 5: st.column_config.NumberColumn("Error residual", format="%.7f", alignment="center"),
             },
             hide_index=True
@@ -49,3 +50,6 @@ if boton_newton:
             st.info(f"📐 **Derivada calculada automáticamente:** $${derivada}$$")
         # Mostramos el mensaje de error capturado de la excepción (ya sea el personalizado o el inesperado)
         st.error(f"Hubo un problema: {resultado}")
+
+with st.sidebar:
+    sugerencia()

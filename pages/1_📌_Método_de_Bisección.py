@@ -1,5 +1,6 @@
 import streamlit as st
 from metodos import ejecutar_biseccion
+from herramientas import agregar_sugerencias_sidebar as sugerencia
 st.set_page_config(
     page_title="Método de la Bisección", 
     page_icon="📌", 
@@ -54,3 +55,6 @@ if boton_biseccion:
         # Si exito es False
         # muestra el mensaje de error personalizado enviado por el raise u otro error
         st.error(f"hubo un problemas: {resultado}")
+
+with st.sidebar:
+    sugerencia()

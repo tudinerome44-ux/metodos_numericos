@@ -1,5 +1,6 @@
 import streamlit as st
 from metodos import ejecutar_falsa_posicion
+from herramientas import agregar_sugerencias_sidebar as sugerencia
 st.set_page_config(
     page_title="Método de la Falsa Posición", 
     page_icon="⚖️", 
@@ -41,11 +42,15 @@ if boton_falsa_posicion:
                 3: st.column_config.NumberColumn("b", format="%.7f", alignment="center"),
                 4: st.column_config.NumberColumn("F(a)", format="%.7f", alignment="center"), 
                 5: st.column_config.NumberColumn("F(b)", format="%.7f", alignment="center"),
-                6: st.column_config.NumberColumn("r", format="%.7f", alignment="center"),
-                7: st.column_config.NumberColumn("F(r)", format="%.7f", alignment="center"),
+                6: st.column_config.NumberColumn("xᵣ", format="%.7f", alignment="center"),
+                7: st.column_config.NumberColumn("F(xᵣ)", format="%.7f", alignment="center"),
                 8: st.column_config.NumberColumn("Error residual", format="%.7f", alignment="center"),
             },
             hide_index=True
         )
     else:
         st.error(f"hubo un problemas: {resultado}")
+
+
+with st.sidebar:
+    sugerencia()

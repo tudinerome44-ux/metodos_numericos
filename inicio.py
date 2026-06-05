@@ -1,4 +1,5 @@
 import streamlit as st
+from herramientas import agregar_sugerencias_sidebar as sugerencia
 # --- Configuración global de la página web ---
 st.set_page_config(page_title="MÉTODOS NUMÉRICOS", page_icon="🧮", layout="wide")
 #layout="wide" se expande el contenido para que pueda ocupar toda la pantalla
@@ -72,13 +73,4 @@ st.markdown("---")
 st.caption("Desarrollado con Python y Streamlit.")
 
 with st.sidebar:
-    st.write("---")
-    st.markdown("### 💬 Deja tu Sugerencia")
-    st.write("¿Encontraste un error o tienes una idea? Ayúdame a mejorar la app.")
-    
-    # Este botón hace la redirección automática hacia tu Google Forms
-    st.page_link(
-        "https://forms.gle/mXFjsPMeqaFq1gGq6", 
-        label="📝 Abrir Formulario", 
-        use_container_width=True
-    )
+    sugerencia()
