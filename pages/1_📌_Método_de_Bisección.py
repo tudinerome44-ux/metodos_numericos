@@ -27,9 +27,7 @@ with col3:
     
 
 if boton_biseccion:
-    # Bisección recibe exactamente 2 parámetros (exito, resultado)
     exito, resultado = ejecutar_biseccion(a, b, r, funcion_biseccion)
-        
     if exito:
         num_iter, tabla = resultado
         st.success(f"¡Raíz encontrada con éxito en {num_iter} iteraciones!")
@@ -37,8 +35,6 @@ if boton_biseccion:
         st.dataframe(
             tabla,
             column_config={
-                #le pongo 8 columnas para que el primero sea el indice
-                #los numeros se refieren a las columnas los nombres que aparecen
                 1: st.column_config.NumberColumn("i", format="%d", alignment="center"),
                 2: st.column_config.NumberColumn("a", format="%.7f", alignment="center"), 
                 3: st.column_config.NumberColumn("b", format="%.7f", alignment="center"),
@@ -49,11 +45,8 @@ if boton_biseccion:
                 8: st.column_config.NumberColumn("Error residual", format="%.7f", alignment="center"),
             },
             hide_index=True
-            # Oculta el índice por defecto de Python para que se vea más limpio
         )
     else:
-        # Si exito es False
-        # muestra el mensaje de error personalizado enviado por el raise u otro error
         st.error(f"hubo un problemas: {resultado}")
 
 with st.sidebar:

@@ -24,12 +24,10 @@ with col3_n:
     st.latex(r"x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}")
     
 if boton_newton:
-    # Newton recibe obligatoriamente 3 parámetros para mantener simetría (exito, resultado, derivada)
     exito, resultado, derivada = ejecutar_newton(x0, r_newton, funcion_newton)
-    
     if exito:
         num_iter, tabla = resultado
-        # Mostramos de forma hermosa la derivada analítica calculada por SymPy
+
         st.info(f"📐 **Derivada calculada automáticamente:** $${derivada}$$")
         st.success(f"¡Raíz aproximada encontrada en {num_iter} iteraciones!")
         st.write("### Tabla de iteraciones paso a paso:")
@@ -45,10 +43,9 @@ if boton_newton:
             hide_index=True
         )
     else:
-        # Control seguro: Si hubo un error pero la derivada se llegó a calcular, la mostramos
         if derivada is not None:
             st.info(f"📐 **Derivada calculada automáticamente:** $${derivada}$$")
-        # Mostramos el mensaje de error capturado de la excepción (ya sea el personalizado o el inesperado)
+        
         st.error(f"Hubo un problema: {resultado}")
 
 with st.sidebar:

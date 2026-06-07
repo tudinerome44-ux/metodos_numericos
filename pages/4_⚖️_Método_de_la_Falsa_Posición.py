@@ -28,8 +28,7 @@ with col3:
     
 
 if boton_falsa_posicion:
-    exito, resultado = ejecutar_falsa_posicion(a, b, r, funcion_falsa_posicion)
-        
+    exito, resultado = ejecutar_falsa_posicion(a, b, r, funcion_falsa_posicion)  
     if exito:
         num_iter, tabla = resultado
         st.success(f"¡Raíz encontrada con éxito en {num_iter} iteraciones!")
@@ -50,7 +49,6 @@ if boton_falsa_posicion:
         )
     else:
         st.error(f"hubo un problemas: {resultado}")
-
 
 with st.sidebar:
     sugerencia()

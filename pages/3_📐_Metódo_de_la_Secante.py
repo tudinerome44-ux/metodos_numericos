@@ -24,7 +24,6 @@ with col3_n:
 
     
 if boton_secante:
-    # Newton recibe obligatoriamente 3 parámetros para mantener simetría (exito, resultado, derivada)
     exito, resultado = ejecutar_secante(x0,x1, r_secante, funcion_secante)
     
     if exito:
@@ -47,7 +46,6 @@ if boton_secante:
         )
     else:
         st.error(f"hubo un problemas: {resultado}")
-
-    
+ 
 with st.sidebar:
     sugerencia()

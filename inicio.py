@@ -2,12 +2,10 @@ import streamlit as st
 from herramientas import agregar_sugerencias_sidebar as sugerencia
 # --- Configuración global de la página web ---
 st.set_page_config(page_title="MÉTODOS NUMÉRICOS", page_icon="🧮", layout="wide")
-#layout="wide" se expande el contenido para que pueda ocupar toda la pantalla
 st.title("🧮 CALCULADORA DE MÉTODOS NUMÉRICOS")
 st.write("Selecciona el método que deseas utilizar en el menú de la izquierda.")
 st.markdown("---")
 
-#Desaparecer icono molesto de streamli
 st.markdown("""
     <style>
     /* Desaparece el ícono de enlace automático en toda la página */
@@ -28,7 +26,7 @@ with st.container():
     st.page_link("pages/1_📌_Método_de_Bisección.py", label="📟 Abrir Calculadora", use_container_width=True)
     st.caption("👆Haz clic en Abrir calculadora o 👈 deplázate por el menú lateral")
 
-st.write("") # Espacio en blanco para separar las filas
+st.write("") 
 
 # --- FILA 2: MÉTODO DE NEWTON-RAPHSON ---
 with st.container():
